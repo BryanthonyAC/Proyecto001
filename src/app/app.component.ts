@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { alumno } from './interfaces/alumno';
+import { producto } from './interfaces/producto';
+import { cliente } from './interfaces/cliente';
+import { pago } from './interfaces/pago';
 
 @Component({
   selector: 'app-root',
@@ -7,43 +9,55 @@ import { alumno } from './interfaces/alumno';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-public alumno:alumno=this.alumnoVacio();
-public alumnos: alumno[]=[];
-public alumnos1: alumno[]=[];
-public alumnos2: alumno[]=[];
+
+public pro01:producto ={
+  nombre:"FUNKO POP! CARNAGE EXCLUSIVO 10″ (25CM) #890 (VENOM)",
+  descripcion:"Consigue el Funko Pop! Carnage Exclusivo 10″ (25cm) en Frikily y goza los precios más bajos de Internet y envíos rapidísimos en solo 24h. 🙊 En este magnífico muñequito podemos ver al villano de Venom “Carnage” en una versión super sized de 10 pulgadas (25cm de altura aproximadamente) y en una edición especial que no puede faltar en tu colección. Lo podemos ver con los brazos abiertos, mostrando su gran dentadura y con la lengua fuera.",
+  precio:120
+}
+
+// public alumno:alumno=this.alumnoVacio();
+// public alumnos: alumno[]=[];
+
+public cliente:cliente=this.clienteVacio();
+public clientes: cliente[]=[];
+
+public pago:pago=this.pagoVacio();
+public pagos: pago[]=[];
 
    onDatos(): void {
     // this.lista.push(this.alumno.nombre);
-    console.log(this.alumno);
-    this.alumnos.push(this.alumno);
-    this.alumno= this.alumnoVacio();
-    console.log("el arreglo alumnos tiene:",this.alumnos.length,"elementos")
-   }
-   onDatos1(): void {
-    // this.lista.push(this.alumno.nombre);
-    console.log(this.alumno);
-    this.alumnos1.push(this.alumno);
-    this.alumno= this.alumnoVacio();
-    console.log("el arreglo alumnos tiene:",this.alumnos1.length,"elementos")
-   }
-   onDatos2(): void {
-    // this.lista.push(this.alumno.nombre);
-    console.log(this.alumno);
-    this.alumnos2.push(this.alumno);
-    this.alumno= this.alumnoVacio();
-    console.log("el arreglo alumnos tiene:",this.alumnos2.length,"elementos")
+    console.log(this.cliente);
+    this.clientes.push(this.cliente);
+    this.cliente= this.clienteVacio();
+    this.pagos.push(this.pago);
+    this.pago= this.pagoVacio();
+    console.log("el arreglo cliente tiene:",this.clientes.length,"elementos")
    }
 
-   alumnoVacio(): alumno{
+   clienteVacio(): cliente{
      return{
-       nombre:"",
-       codigo:"",
-       email:""
+      nombre:"",
+      apellidos:"",
+      dni:"",
+      celular:"",
+      email:""
      };
    }
+   pagoVacio(): pago{
+    return{
+      nrotarjeta:"",
+      cvv:"",
+      fechavencimiento:""
+    };
+  }
    onEliminar(i:number):void{
     //  this.lista.splice(i,1);
-    this.alumnos.splice(i,1);
+    this.clientes.splice(i,1);
+   }
+   onEliminar1(i:number):void{
+    //  this.lista.splice(i,1);
+    this.pagos.splice(i,1);
    }
    onModificar(nombre:string,codigo:string,email:string){
 
@@ -52,7 +66,10 @@ public alumnos2: alumno[]=[];
   //   const elemento = event.target as HTMLInputElement;
   //   this.alumno.nombre = elemento.value;
   // }
-  // public imagen:string="https://i.ytimg.com/vi/DCBYc4Yx8r0/maxresdefault.jpg"
+  public imagen:string="https://assets.frikily.com/wp-content/uploads/2021/04/Funko-Pop-Carnage-Exclusivo-25cm-Venom.jpg"
+  public imagen1:string="https://assets.frikily.com/wp-content/uploads/2021/08/Figura-POP-Marvel-Venom-2-Carnage-25cm-1.jpg"
+  public imagen2:string="https://assets.frikily.com/wp-content/uploads/2021/08/Figura-POP-Marvel-Venom-2-Carnage-25cm.jpg"
+  
   // public estadoBoton: boolean = false;
   // onGuardar(): void{
   //   console.log("metodo onGuardar() invocado"); 
